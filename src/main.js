@@ -26,9 +26,6 @@ head.addEventListener('click', (e) => {
    
   rows.sort(sortFn);
 
-  for (const row of rows) {
-    containerRows.appendChild(row);
-  }
-
+    containerRows.append(...rows);
 })
 
