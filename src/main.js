@@ -1,3 +1,4 @@
+"use sctrict"
 const sortable = document.querySelector('[data-sortable]');
 const head = document.querySelector('[data-header]');
 const containerRows = document.querySelector('[data-rows-container]')
@@ -12,9 +13,8 @@ head.addEventListener('click', (e) => {
   const rows = [...containerRows.children]
   const {sortType, column} = columnTitle.dataset;
 
-  const getVal = (row) => {
-    return row.children[column].textContent;
-  }
+  const getVal = row => row.children[column].textContent;
+
 
   const sortFunction = {
     number: (a, b) => getVal(a) - getVal(b),
@@ -25,7 +25,5 @@ head.addEventListener('click', (e) => {
   const sortFn = sortFunction[sortType] || defaultSort;
    
   rows.sort(sortFn);
-
     containerRows.append(...rows);
 })
-
